@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#081d26">
+  <meta name="description" content="Enter a changing Arctic. Explore three escalating scenarios, four country perspectives and the choices at the heart of the Körber Policy Game.">
+  <title>Thawing Order — The Arctic Question</title>
+  <link rel="icon" href="assets/compass.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="assets/d3.min.js"></script><script defer src="assets/topojson.min.js"></script><script defer src="assets/world-data.js"></script><script defer src="data.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#scenario">Skip to the scenario</a>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Thawing Order home"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M22 2v40M2 22h40M8 8l28 28M8 36 36 8"/><path d="m22 7 5 15-5 15-5-15Z"/></svg><span>THAWING ORDER<small>THE ARCTIC QUESTION</small></span></a>
+  <nav aria-label="Main navigation"><a href="#scenario">The scenario</a><a href="#players">The players</a><a href="#decisions">Decision room</a><a href="#lessons">Field notes</a></nav>
+  <button class="text-button source-trigger">The source <span>↗</span></button>
+</header>
+<main>
+<section class="hero section-wrap" id="top" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="live-dot"></span> KÖRBER POLICY GAME · 2026</div>
+    <h1 id="hero-title">THAWING<br><span>ORDER</span><sup>↗</sup></h1>
+    <p class="hero-subtitle">The Arctic question.</p>
+    <p class="hero-description">The ice is retreating. The stakes are rising.<br>Step inside a future where climate, commerce<br class="desktop-break"> and conflict collide.</p>
+    <div class="hero-actions"><a class="button primary" href="#scenario">Explore the scenario <span>↓</span></a><a class="quiet-link" href="#decisions">Take a seat at the table <span>↗</span></a></div>
+    <div class="hero-meta"><span><b>03</b> escalating moves</span><span><b>04</b> country teams</span><span><b>2030–35</b> imagined future</span></div>
+  </div>
+  <div class="map-stage" aria-label="Interactive Arctic map">
+    <div class="map-kicker"><span>THE HIGH NORTH</span><span class="mono">90° N / A CHANGING THEATRE</span></div>
+    <div class="map-layers" role="group" aria-label="Filter map locations"><button data-layer="all" class="active" aria-pressed="true">All hotspots</button><button data-layer="economy" aria-pressed="false">Resources</button><button data-layer="environment" aria-pressed="false">Environment</button><button data-layer="security" aria-pressed="false">Security</button></div>
+    <svg id="arctic-map" viewBox="0 0 820 700" role="group" aria-label="Arctic globe with clickable scenario locations"><title>Explore the High North</title><desc>A polar view of Greenland, northern Europe, Canada and Russia. Use the location buttons to read scenario briefings. Drag to rotate the globe.</desc></svg>
+    <div class="map-controls"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="reset-map" aria-label="Reset map orientation">⌖</button></div>
+    <div class="map-foot"><span><i></i> Select a hotspot to open its briefing</span><button id="location-list">Location index <span>↗</span></button></div>
+    <div id="map-fallback" hidden>Open the location index to explore the Arctic briefings.</div>
+  </div>
+</section>
+<div class="scenario-notice"><span>SCENARIO, NOT A FORECAST</span><p>A plausible future, designed to test our choices. Events set in 2030–2035 are fictional elements of the policy game.</p><button class="source-trigger" aria-label="Read about the game methodology">About the game <span>↗</span></button></div>
+
+<section id="scenario" class="section-wrap scenario-section" aria-labelledby="scenario-title">
+  <div class="section-heading"><div><p class="eyebrow">01 / FOLLOW THE FAULT LINES</p><h2 id="scenario-title">Small fractures.<br><em>Global consequences.</em></h2></div><p class="section-intro">Three moves. Five years. Watch separate pressures become a single, interconnected Arctic crisis.</p></div>
+  <div class="timeline" role="tablist" aria-label="Scenario moves">
+    <button role="tab" id="move-tab-0" data-move="0" aria-controls="move-panel" aria-selected="true" class="selected"><span class="step-number">01</span><span><b>2030–2031</b><small>The slow burn</small></span><span class="timeline-dot"></span></button>
+    <button role="tab" id="move-tab-1" data-move="1" aria-controls="move-panel" aria-selected="false" tabindex="-1"><span class="step-number">02</span><span><b>2033</b><small>The breaking point</small></span><span class="timeline-dot"></span></button>
+    <button role="tab" id="move-tab-2" data-move="2" aria-controls="move-panel" aria-selected="false" tabindex="-1"><span class="step-number">03</span><span><b>2035</b><small>The confrontation</small></span><span class="timeline-dot"></span></button>
+  </div>
+  <div id="move-panel" class="move-panel" role="tabpanel" aria-labelledby="move-tab-0" tabindex="0"></div>
+  <div class="scenario-bottom"><p><span class="line-key"></span> The risks compound. They do not replace one another.</p><div><button id="previous-move" aria-label="Previous scenario move">←</button><span id="move-count" class="mono">01 / 03</span><button id="next-move" aria-label="Next scenario move">→</button></div></div>
+</section>
+
+<section id="players" class="players-section" aria-labelledby="players-title"><div class="section-wrap">
+  <div class="section-heading"><div><p class="eyebrow">02 / READ THE ROOM</p><h2 id="players-title">One Arctic.<br><em>Four strategic instincts.</em></h2></div><div><p class="section-intro">The same crisis looks different from every capital. Select a team to see its priorities and its difficult choices.</p><button id="compare-teams" class="quiet-link">Compare all four teams <span>↗</span></button></div></div>
+  <div class="country-tabs" role="tablist" aria-label="Country team"><button role="tab" id="country-tab-denmark" data-country="denmark" aria-controls="country-panel" aria-selected="true" class="selected"><span class="flag dk"></span>Kingdom of Denmark <span>↗</span></button><button role="tab" id="country-tab-germany" data-country="germany" aria-controls="country-panel" aria-selected="false" tabindex="-1"><span class="flag de"></span>Germany <span>↗</span></button><button role="tab" id="country-tab-norway" data-country="norway" aria-controls="country-panel" aria-selected="false" tabindex="-1"><span class="flag no"></span>Norway <span>↗</span></button><button role="tab" id="country-tab-uk" data-country="uk" aria-controls="country-panel" aria-selected="false" tabindex="-1"><span class="flag uk"></span>United Kingdom <span>↗</span></button></div>
+  <div id="country-panel" class="country-panel" role="tabpanel" aria-labelledby="country-tab-denmark" tabindex="0"></div>
+  <aside class="greenland-voice"><div class="voice-mark">Kalaallit<br>Nunaat<span>GREENLAND’S VOICE</span></div><div><blockquote>“Greenland cannot simply be treated as an object of great-power competition”</blockquote><p>Aaja Chemnitz’s reflection puts Greenlandic agency, democratic institutions and the right to shape its own future at the centre of the discussion.</p><a href="assets/report.pdf#page=13" target="_blank" rel="noopener">Read her reflection <span>↗</span> <small>REPORT P. 11</small></a></div></aside>
+</div></section>
+
+<section id="decisions" class="decision-section section-wrap" aria-labelledby="decision-title">
+  <div class="section-heading"><div><p class="eyebrow">03 / TAKE A SEAT AT THE TABLE</p><h2 id="decision-title">What would<br><em>you do next?</em></h2></div><p class="section-intro">There is no frictionless choice. Work through three dilemmas, then compare your approach with the teams’ thinking.</p></div>
+  <div class="decision-shell"><div class="decision-side"><div class="eyebrow">YOUR POLICY BRIEFING</div><ol id="decision-progress"><li class="current"><span>01</span> Investment & influence</li><li><span>02</span> Relief & access</li><li><span>03</span> Deterrence & restraint</li></ol><div class="compass-large" aria-hidden="true">✳</div><p>A reflection exercise inspired by the report. These choices reveal trade-offs; they do not predict outcomes or recreate the original game.</p></div><div id="decision-content" class="decision-content" aria-live="polite"></div></div>
+</section>
+
+<section id="lessons" class="lessons-section"><div class="section-wrap">
+  <div class="section-heading"><div><p class="eyebrow">04 / BRING THE LESSONS HOME</p><h2 id="lessons-title">Prepare before<br><em>the ice breaks.</em></h2></div><p class="section-intro">The exercise points to six priorities for a more coherent European approach. Open each field note to see what it means in practice.</p></div>
+  <div id="recommendations" class="recommendations"></div>
+  <div class="source-band"><div><span class="eyebrow">GO DEEPER</span><h3>The full picture is in the report.</h3><p>Thawing Order: The Arctic Question · Körber-Stiftung, in cooperation with GCSP · 2026</p></div><a class="button primary" href="assets/report.pdf" target="_blank" rel="noopener">Read the original report <span>↗</span></a></div>
+</div></section>
+</main>
+<footer class="section-wrap"><div class="footer-top"><a href="#top" class="brand">THAWING ORDER <span>↑</span></a><p>An independent interactive reading of the Körber Policy Game.<br>Based on the supplied report. No affiliation or endorsement implied.</p><button id="glossary-trigger" class="quiet-link">Arctic field guide <span>↗</span></button></div><div class="footer-bottom"><span>Report: © Körber-Stiftung 2026 · Map: Natural Earth via world-atlas</span><span>Explore thoughtfully. Keep cool and carry on.</span><button class="source-trigger">Sources & methodology</button></div></footer>
+<dialog id="detail-dialog" aria-labelledby="dialog-kicker"><div class="dialog-top"><span id="dialog-kicker" class="eyebrow"></span><button id="close-dialog" aria-label="Close briefing">×</button></div><div id="dialog-content"></div></dialog>
+<div id="announce" class="sr-only" aria-live="polite"></div>
+</body></html>
